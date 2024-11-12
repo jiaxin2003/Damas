@@ -1,4 +1,16 @@
 package org.iesalandalus.programacion.damas.modelo;
 
-public class Color {
+public enum Color {
+    BLANCO("Blanco"), NEGRO("Negro");
+
+    private String cadenaAMostrar;
+    private Color(String cadenaAMostrar)
+    {
+        this.cadenaAMostrar=cadenaAMostrar;
+    }
+
+    @Override
+    public String toString() {
+        return ordinal()+".-"+cadenaAMostrar;
+    }
 }
