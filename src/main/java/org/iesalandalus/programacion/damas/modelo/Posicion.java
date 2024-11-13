@@ -13,6 +13,10 @@ public class Posicion {
         setColumna(columna);
     }
 
+    public Posicion(Posicion posicion){
+        setFila(posicion.fila);
+        setColumna(posicion.columna);
+    }
 
 
 
