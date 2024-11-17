@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.damas;
 
+import org.iesalandalus.programacion.damas.modelo.Direccion;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class Consola {
@@ -37,18 +38,38 @@ public class Consola {
         System.out.println("3. SURESTE");
         System.out.println("4. SUROESTE");
     }
-    public static int elegirDireccion(){
+    public static Direccion elegirDireccion(){
         int direccion;
         do {
 
-            System.out.println("Elige que movimineto quieres hacer");
+            System.out.println("Elige que movimiento quieres hacer");
             System.out.println("1. NORESTE");
             System.out.println("2. NOROESTE");
             System.out.println("3. SURESTE");
             System.out.println("4. SUROESTE");
             direccion = Entrada.entero();
         }while (direccion<1||direccion>4);
-        return direccion;
+        switch (direccion){
+            case 1:
+                return Direccion.NORESTE;
+            case 2:
+                return Direccion.NOROESTE;
+            case 3:
+                return Direccion.SURESTE;
+            case 4:
+                return Direccion.SUROESTE;
+        }
+        return null;
     }
-
+    public static int elegirPasos(){
+        int pasos;
+        do {
+            System.out.println("introduce los pasos que quieras realizar");
+            pasos=Entrada.entero();
+        }while (pasos<1 || pasos>8);
+        return pasos;
+    }
+    public static void despedirse(){
+        System.out.println("saliendo del programa, espero que tuviese una estancia agradable");
+    }
 }
