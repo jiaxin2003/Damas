@@ -30,4 +30,11 @@ public class Consola {
         }while (colorOpcion<1||colorOpcion>2);
         return colorOpcion;
     }
+    public static void mostrarMenuDirecciones(){
+        System.out.println("Elige el movimiento que quieres hacer");
+        System.out.println("1. NORESTE");
+        System.out.println("2. NOROESTE");
+        System.out.println("3. SURESTE");
+        System.out.println("4. SUROESTE");
+    }
 }
