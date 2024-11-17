@@ -31,10 +31,24 @@ public class Consola {
         return colorOpcion;
     }
     public static void mostrarMenuDirecciones(){
-        System.out.println("Elige el movimiento que quieres hacer");
+        System.out.println("Estos son los movimientos que puedes hacer");
         System.out.println("1. NORESTE");
         System.out.println("2. NOROESTE");
         System.out.println("3. SURESTE");
         System.out.println("4. SUROESTE");
     }
+    public static int elegirDireccion(){
+        int direccion;
+        do {
+
+            System.out.println("Elige que movimineto quieres hacer");
+            System.out.println("1. NORESTE");
+            System.out.println("2. NOROESTE");
+            System.out.println("3. SURESTE");
+            System.out.println("4. SUROESTE");
+            direccion = Entrada.entero();
+        }while (direccion<1||direccion>4);
+        return direccion;
+    }
+
 }
