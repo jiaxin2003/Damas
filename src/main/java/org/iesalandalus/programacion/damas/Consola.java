@@ -15,6 +15,8 @@ public class Consola {
         System.out.println("3. Movimiento");
         System.out.println("4. Salir del Programa");
     }
+
+
     public static int elegirOpcionMenu(){
         int opcion;
             do {
@@ -23,7 +25,8 @@ public class Consola {
             }while (opcion<1 || opcion>4);
             return opcion;
     }
-    public static int elegirOpcion(){
+
+    public static int elegirOpcionColor(){
         int colorOpcion;
         do {
             System.out.println("Elige un color entre Negro y Blanco");
@@ -31,8 +34,13 @@ public class Consola {
             System.out.println("2. negro");
             colorOpcion=Entrada.entero();
         }while (colorOpcion<1||colorOpcion>2);
-        return colorOpcion;
+        if(colorOpcion==1){
+            return Color.BLANCO.ordinal();
+        }else
+            return Color.NEGRO.ordinal();
     }
+
+
     public static void mostrarMenuDirecciones(){
         System.out.println("Estos son los movimientos que puedes hacer");
         System.out.println("1. NORESTE");
@@ -40,6 +48,8 @@ public class Consola {
         System.out.println("3. SURESTE");
         System.out.println("4. SUROESTE");
     }
+
+
     public static Direccion elegirDireccion(){
         int direccion;
         do {
@@ -63,6 +73,8 @@ public class Consola {
         }
         return null;
     }
+
+
     public static int elegirPasos(){
         int pasos;
         do {
@@ -71,6 +83,8 @@ public class Consola {
         }while (pasos<1 || pasos>8);
         return pasos;
     }
+
+
     public static void despedirse(){
         System.out.println("saliendo del programa, espero que tuviese una estancia agradable");
     }

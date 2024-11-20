@@ -9,6 +9,9 @@ public class Dama {
     private Posicion posicion;
     private boolean esDamaEspecial;
 
+    public Dama(int opcionElegida) {
+    }
+
 
     private Posicion crearPosicionInicial(){
         int fila;
@@ -117,13 +120,13 @@ public class Dama {
         Posicion posicionInicial=crearPosicionInicial();
         setColor(Color.BLANCO);
         setPosicion(posicionInicial);
-        this.esDamaEspecial=false;
+        setEsDamaEspecial(setEsDamaEspecial());
     }
     public Dama(Color color){
         Posicion posicionInicial=crearPosicionInicial();
         setColor(color);
         setPosicion(posicionInicial);
-        this.esDamaEspecial=false;
+        setEsDamaEspecial(setEsDamaEspecial());
     }
 
 
@@ -153,6 +156,9 @@ public class Dama {
 
     public void setEsDamaEspecial(boolean esDamaEspecial) {
         this.esDamaEspecial = esDamaEspecial;
+    }
+    private boolean setEsDamaEspecial() {
+        return false;
     }
 
     @Override
