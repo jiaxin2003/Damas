@@ -9,9 +9,10 @@ public class Dama {
     private Posicion posicion;
     private boolean esDamaEspecial;
 
+
+
     public Dama(int opcionElegida) {
     }
-
 
     private Posicion crearPosicionInicial(){
         int fila;
@@ -60,18 +61,13 @@ public class Dama {
                     throw new OperationNotSupportedException("ERROR: la dama no es dama especial lo cual ahce que no pueda moverse mas de una casilla");
                 }
 
-                int nuevaFila = posicion.getFila();
-                char nuevaColumna = posicion.getColumna();
+                switch (direccion){
+                    case NORESTE -> this.setPosicion(new Posicion(getPosicion().getFila() + 1, (char) (getPosicion().getColumna() + 1)));
+                    case NOROESTE -> this.setPosicion(new Posicion(getPosicion().getFila()+1, (char)(getPosicion().getColumna()-1)));
+                }
+                if(this.posicion.getFila() ==8){
+                    this.esDamaEspecial=true;
 
-                switch (direccion) {
-                    case NORESTE -> {
-                        nuevaFila++;
-                        nuevaColumna++;
-                    }
-                    case NOROESTE -> {
-                        nuevaFila++;
-                        nuevaColumna--;
-                    }
                 }
                 }else if (color ==Color.NEGRO){
                 if (direccion== Direccion.NORESTE || direccion == Direccion.NOROESTE) {
@@ -79,38 +75,21 @@ public class Dama {
                 }
             } else if (pasos>1) {
                 throw new OperationNotSupportedException("ERROR: la Dama no es Dama especial lo cuál hace que no pueda moverse mas de una casilla");
-            } int nuevaFila = posicion.getFila();
-            char nuevaColumna = posicion.getColumna();
-            switch (direccion) {
-                case SURESTE -> {
-                    nuevaFila--;
-                    nuevaColumna++;
-                }
-                case SUROESTE -> {
-                    nuevaFila--;
-                    nuevaColumna--;
-                }
+            } switch (direccion) {
+                case SURESTE ->
+                        this.setPosicion(new Posicion(getPosicion().getFila() - 1, (char) (getPosicion().getColumna() + 1)));
+                case SUROESTE ->
+                        this.setPosicion(new Posicion(getPosicion().getFila() - 1, (char) (getPosicion().getColumna() - 1)));
+            }
+            if(this.posicion.getFila()==1){
+                this.esDamaEspecial=true;
             }
         }else {
-            int nuevaFila = posicion.getFila();
-            char nuevaColumna = posicion.getColumna();
             switch (direccion) {
-                case NORESTE -> {
-                    nuevaFila++;
-                    nuevaColumna++;
-                }
-                case NOROESTE -> {
-                    nuevaFila++;
-                    nuevaColumna--;
-                }
-                case SURESTE -> {
-                    nuevaFila--;
-                    nuevaColumna++;
-                }
-                case SUROESTE -> {
-                    nuevaFila--;
-                    nuevaColumna--;
-                }
+                case NORESTE -> this.setPosicion(new Posicion(getPosicion().getFila() + 1, (char) (getPosicion().getColumna() + 1)));
+                case NOROESTE -> this.setPosicion(new Posicion(getPosicion().getFila()+1, (char)(getPosicion().getColumna()-1)));
+                case SURESTE -> this.setPosicion(new Posicion(getPosicion().getFila() - 1, (char) (getPosicion().getColumna() + 1)));
+                case SUROESTE -> this.setPosicion(new Posicion(getPosicion().getFila() - 1, (char) (getPosicion().getColumna() - 1)));
             }
         }
     }
@@ -128,7 +107,6 @@ public class Dama {
         setPosicion(posicionInicial);
         setEsDamaEspecial(setEsDamaEspecial());
     }
-
 
 
 

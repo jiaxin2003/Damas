@@ -16,6 +16,9 @@ public class Posicion {
     }
 
     public Posicion(Posicion posicion){
+        if(posicion==null){
+            throw new NullPointerException("ERROR: no puede ser nula.");
+        }
         setFila(posicion.fila);
         setColumna(posicion.columna);
     }
